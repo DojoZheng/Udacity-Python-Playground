@@ -3,10 +3,18 @@
 # Use Dave's suggestions to finish your daysBetweenDates
 # procedure. It will need to take into account leap years
 # in addition to the correct number of days in each month.
+def daysInMonth(year, month):  
+    if month in (1,3,5,7,8,10,12):
+        return 31
+    else:
+        if month == 2:
+            return 28
+        else:
+            return 30
 
 def nextDay(year, month, day):
     """Simple version: assume every month has 30 days"""
-    if day < 30:
+    if day < daysInMonth(year, month):
         return year, month, day + 1
     else:
         if month == 12:
@@ -37,6 +45,19 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         days += 1
     return days
 
+def  testNextDay():
+    test_cases = [((2012,3,1), (2012,3,2)), 
+                  ((2012,4,30), (2012,5,1)),
+                  ((2011,12,31), (2012,1,1)),
+                  ((2011,9,30), (2011,10,1))]
+    
+    for (args, answer) in test_cases:
+        result = nextDay(*args)
+        if result != answer:
+            print "Test Next Day with data:", args, "failed"
+        else:
+            print "Test Next Day case passed!"
+
 def test():
     test_cases = [((2012,1,1,2012,2,28), 58), 
                   ((2012,1,1,2012,3,1), 60),
@@ -51,4 +72,6 @@ def test():
         else:
             print "Test case passed!"
 
+testNextDay()
+print "\n"
 test()
