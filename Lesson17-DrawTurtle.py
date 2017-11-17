@@ -60,9 +60,10 @@ def draw_triangle_circle():
 		index += 1
 	window.exitonclick()
 
+
 # draw_square(0)
 # draw_circle()
-# draw_triangle()
-# draw_square_circle()
-draw_triangle_circle()
+# draw_triangle(0)
+draw_square_circle()
+# draw_triangle_circle()
 	
